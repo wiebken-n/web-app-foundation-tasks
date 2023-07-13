@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-input {
+  width: 25rem;
+  height: 3rem;
+  padding-left: 1rem;
+}
+.button-show-pw {
+  font-family: monospace;
+  font-size: 2rem;
+  width: 17rem;
+  height: 3rem;
+  margin-left: 1.7rem;
+}
+
+button,
+input {
+  font-family: monospace;
+  font-size: 1.5rem;
+}
