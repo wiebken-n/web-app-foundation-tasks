@@ -1,0 +1,42 @@
+/*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*/
+html,
+body {
+  height: 100vh;
+}
+html {
+  transition-duration: 300ms;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-dark {
+  background-color: rgb(36, 36, 36);
+}
+.lightswitch {
+  cursor: pointer;
+  background-color: transparent;
+  border: 5px black solid;
+  border-radius: 0.1rem;
+  box-shadow: 0rem 0rem 1rem 0.5rem white;
+  font-family: monospace;
+  color: black;
+  font-size: 2rem;
+  width: 16rem;
+  height: 4rem;
+  transition-duration: 300ms;
+}
+
+.lightswitch-dark {
+  border: 5px white solid;
+  box-shadow: 0rem 0rem 1rem 0.5rem rgb(231, 227, 185);
+  color: white;
+}
