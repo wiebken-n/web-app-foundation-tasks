@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  _border: 1px red solid;
+  margin: 0;
+}
+
+html {
+  font-size: 20px;
+  font-family: monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 15%;
+}
+
+.slider-container {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.rgb-container {
+  display: flex;
+  align-items: center;
+}
+label {
+  padding-right: 0.5rem;
+}
+.hexvalue-container {
+  display: flex;
+}
+
+.hexvalue {
+  margin: auto;
+  font-size: 1.5rem;
+}
+
+main {
+  background-color: black;
+  height: 85%;
+}
