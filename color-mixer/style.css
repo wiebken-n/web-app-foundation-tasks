@@ -2,13 +2,15 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  _border: 1px red solid;
   margin: 0;
 }
 
 html {
   font-size: 20px;
   font-family: monospace;
+  --value-red: 0;
+  --value-green: 0;
+  --value-blue: 0;
 }
 
 html,
@@ -21,6 +23,12 @@ header {
   justify-content: space-between;
   padding: 0 2rem;
   height: 15%;
+  background-color: rgb(
+    var(--value-red),
+    var(--value-green),
+    var(--value-blue),
+    0.3
+  );
 }
 
 .slider-container {
@@ -46,6 +54,10 @@ label {
 }
 
 main {
-  background-color: black;
+  background-color: rgb(
+    var(--value-red),
+    var(--value-green),
+    var(--value-blue)
+  );
   height: 85%;
 }
