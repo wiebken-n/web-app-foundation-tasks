@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  --count-value: 0%;
+}
+
+::selection {
+  color: black;
+  background-color: transparent;
+}
+
+html,
+body,
+main {
+  height: 100%;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgb(184, 233, 217);
+}
+
+.instruction-wrapper {
+  margin-left: 1rem;
+}
+.title {
+  font-size: 2rem;
+}
+
+.button-wrapper {
+  display: flex;
+  margin-right: 2rem;
+}
+
+.reset-button {
+  all: unset;
+  margin: auto;
+  background: white;
+  width: 6rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  text-align: center;
+  border: 2px solid black;
+  box-shadow: 3px 3px 0 1px white;
+  cursor: pointer;
+}
+
+.reset-button:active {
+  box-shadow: 3px 3px 0 1px rgb(39, 172, 12);
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    rgb(39, 172, 128) 0%,
+    rgb(39, 172, 128) var(--count-value),
+    white var(--count-value),
+    white 100%
+  );
+
+  cursor: cell;
+}
+
+.count {
+  font-size: 5rem;
+}
