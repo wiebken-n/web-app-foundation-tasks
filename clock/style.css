@@ -1,0 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  --seconds: 30deg;
+  --minutes: 90deg;
+  --hours: 180deg;
+}
+html,
+body,
+main {
+  height: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  background-color: rgb(136, 218, 184);
+}
+
+.dial {
+  position: relative;
+  background-color: white;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 90%;
+  border: 3px solid black;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.534);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.analog-hours {
+  background-color: black;
+  border-radius: 5px;
+  height: 5.5rem;
+  width: 6px;
+  position: absolute;
+  transform-origin: bottom;
+  transform: rotate(var(--hours));
+  bottom: 50%;
+}
+
+.analog-minutes {
+  background-color: black;
+  border-radius: 5px;
+  height: 9rem;
+  width: 5px;
+  position: absolute;
+  transform-origin: bottom;
+  transform: rotate(var(--minutes));
+  bottom: 50%;
+}
+
+.analog-seconds {
+  background-color: black;
+  border-radius: 5px;
+  height: 9rem;
+  width: 2.5px;
+  position: absolute;
+  transform-origin: bottom;
+  transform: rotate(var(--seconds));
+  bottom: 50%;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  background-color: black;
+  border-radius: 90%;
+}
+.digital-clock {
+  font-size: 3rem;
+  font-family: monospace;
+}
+
+.invisible {
+  visibility: hidden;
+}
