@@ -13,7 +13,7 @@ counterArea.addEventListener("click", function () {
   countUp();
 });
 // execute countUp function if space is used
-window.addEventListener("keyup", function (event) {
+window.addEventListener("keypress", function (event) {
   if (event.code === "Space" || event.code === "Enter") {
     countUp();
   }
