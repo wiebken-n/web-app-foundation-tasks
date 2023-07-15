@@ -8,6 +8,9 @@ html {
   --seconds: 30deg;
   --minutes: 90deg;
   --hours: 180deg;
+  --red: 0;
+  --green: 0;
+  --blue: 0;
 }
 html,
 body,
@@ -21,7 +24,8 @@ main {
   align-items: center;
   justify-content: center;
   gap: 5rem;
-  background-color: rgb(136, 218, 184);
+  transition: background-color 1000ms ease;
+  background-color: rgb(var(--red), var(--green), var(--blue), 0.9);
 }
 
 .dial {

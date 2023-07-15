@@ -22,7 +22,13 @@ function updateTime() {
   html.style.setProperty("--seconds", date.getSeconds() * 6 + "deg");
   html.style.setProperty("--minutes", date.getMinutes() * 6 + "deg");
   html.style.setProperty("--hours", (date.getHours() / 2) * 30 + "deg");
+
+  // background-colors
+  html.style.setProperty("--red", date.getHours() * (100 / 24) + 50);
+  html.style.setProperty("--green", date.getMinutes() * (100 / 60) + 150);
+  html.style.setProperty("--blue", date.getSeconds() * (150 / 60) + 50);
 }
+
 // convert time to double digits (if necessary)
 function convertTime(time) {
   time = time.toString();
