@@ -3,6 +3,7 @@ const counterArea = document.querySelector(".counter");
 const counterText = document.querySelector(".count");
 const resetButton = document.querySelector(".reset-button");
 const html = document.querySelector("html");
+
 // initialize variables for counter numbers
 let count = 0;
 let countShown = 0;
@@ -12,8 +13,8 @@ counterArea.addEventListener("click", function () {
   countUp();
 });
 // execute countUp function if space is used
-document.addEventListener("keyup", function (event) {
-  if (event.code === "Space") {
+window.addEventListener("keyup", function (event) {
+  if (event.code === "Space" || event.code === "Enter") {
     countUp();
   }
 });

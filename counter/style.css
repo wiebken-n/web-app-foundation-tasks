@@ -67,7 +67,7 @@ main {
   justify-content: center;
   align-items: center;
   height: 100%;
-
+  transition: --count-value 5000ms ease-in-out;
   background: linear-gradient(
     90deg,
     rgb(39, 172, 128) 0%,
@@ -75,7 +75,6 @@ main {
     white var(--count-value),
     white 100%
   );
-
   cursor: cell;
 }
 
