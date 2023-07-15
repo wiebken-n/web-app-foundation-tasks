@@ -1,12 +1,13 @@
 const button = document.querySelector(".lightswitch");
-const html = document.querySelector("html");
+const body = document.querySelector("body");
+const title = document.querySelector("title");
 
 button.addEventListener("click", function () {
   if (!button.className.includes("lightswitch-dark")) {
-    console.log("light off");
+    title.innerText = "Good Night";
   } else if (button.className.includes("lightswitch-dark")) {
-    console.log("light on");
+    title.innerText = "Good Morning";
   }
   button.classList.toggle("lightswitch-dark");
-  html.classList.toggle("background-dark");
+  body.classList.toggle("background-dark");
 });
