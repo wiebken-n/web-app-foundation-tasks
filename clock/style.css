@@ -25,6 +25,7 @@ main {
   justify-content: center;
   gap: 5rem;
   transition: background-color 1000ms ease;
+  background-color: #96dab8;
   background-color: rgb(var(--red), var(--green), var(--blue), 0.9);
 }
 
