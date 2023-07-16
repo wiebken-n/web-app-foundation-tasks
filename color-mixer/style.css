@@ -8,9 +8,9 @@
 html {
   font-size: 20px;
   font-family: monospace;
-  --value-red: 0;
-  --value-green: 0;
-  --value-blue: 0;
+  --value-red: 168;
+  --value-green: 240;
+  --value-blue: 96;
 }
 
 html,
@@ -47,14 +47,14 @@ label {
 }
 
 .slider-red {
-  accent-color: rgb(231, 70, 70);
-  background-color: white;
+  accent-color: rgb(231, 71, 71);
 }
 .slider-green {
-  accent-color: rgb(65, 175, 65);
+  accent-color: rgb(67, 219, 67);
 }
+
 .slider-blue {
-  accent-color: rgb(56, 56, 240);
+  accent-color: rgb(46, 46, 240);
 }
 
 .hexvalue-container {

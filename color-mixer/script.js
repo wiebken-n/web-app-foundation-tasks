@@ -7,7 +7,7 @@ const sliderContainer = document.querySelector(".slider-container");
 
 const hexValue = document.querySelector(".hexvalue");
 
-sliderContainer.addEventListener("pointermove", function () {
+sliderContainer.addEventListener("input", function () {
   let redValue = red.value;
   let greenValue = green.value;
   let blueValue = blue.value;
