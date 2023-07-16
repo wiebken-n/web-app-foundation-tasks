@@ -41,9 +41,22 @@ header {
   display: flex;
   align-items: center;
 }
+
 label {
   padding-right: 0.5rem;
 }
+
+.slider-red {
+  accent-color: rgb(231, 70, 70);
+  background-color: white;
+}
+.slider-green {
+  accent-color: rgb(65, 175, 65);
+}
+.slider-blue {
+  accent-color: rgb(56, 56, 240);
+}
+
 .hexvalue-container {
   display: flex;
 }

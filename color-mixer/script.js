@@ -22,14 +22,17 @@ sliderContainer.addEventListener("pointermove", function () {
   function valueConvert(rgbValue) {
     rgbValue = parseInt(rgbValue);
     let hex = rgbValue.toString(16);
+    console.log(hex);
+    while (hex.length < 2) {
+      hex = "0" + hex;
+    }
+    console.log(hex);
     return hex;
   }
 
   function convertToHex(r, g, b) {
     let value = valueConvert(r) + valueConvert(g) + valueConvert(b);
-    while (value.length < 6) {
-      value = "0" + value;
-    }
+
     return value;
   }
 });
