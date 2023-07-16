@@ -67,3 +67,7 @@ h1 {
 li > input {
   margin-right: 1rem;
 }
+
+.done-todo {
+  text-decoration: line-through;
+}
