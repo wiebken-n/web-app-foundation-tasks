@@ -1,3 +1,4 @@
+// initialize variables
 const html = document.querySelector("html");
 const digiHours = document.querySelector(".digi-hours");
 const digiMinutes = document.querySelector(".digi-minutes");
@@ -8,6 +9,15 @@ const analogHours = document.querySelector(".analog-hours");
 const analogMinutes = document.querySelector(".analog-minutes");
 const analogSeconds = document.querySelector(".analog-seconds");
 
+// update current time
+updateTime();
+
+// set interval at which current time is updated
+setInterval(updateTime, 1000);
+
+// toggle dark mode
+toggleDarkMode();
+
 function updateTime() {
   //  get current time
   let date = new Date();
@@ -17,8 +27,6 @@ function updateTime() {
   digiMinutes.innerText = convertTime(date.getMinutes());
   digiSeconds.innerText = convertTime(date.getSeconds());
   digiDots.forEach((entry) => entry.classList.toggle("invisible"));
-
-  // toggle dark mode
 
   // analog clock
   html.style.setProperty("--seconds", date.getSeconds() * 6 + "deg");
@@ -40,21 +48,13 @@ function convertTime(time) {
   return time;
 }
 
-// execute function
-updateTime();
-
-// set interval at which current time is updated
-setInterval(updateTime, 1000);
-toggleDarkMode();
-
+// change to/from darkmode according to current time
 function toggleDarkMode() {
   let date = new Date();
   let currentHour = date.getHours();
-  // dark mode
-  if (currentHour > 20 || currentHour < 8) {
+  if (currentHour >= 21 || currentHour <= 7) {
     html.classList.add("html-dark");
-  }
-  if (currentHour < 20 || currentHour > 8) {
+  } else {
     html.classList.remove("html-dark");
   }
 }
