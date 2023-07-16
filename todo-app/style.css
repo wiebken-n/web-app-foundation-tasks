@@ -3,7 +3,7 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  border: 2px rgb(155, 155, 155) solid;
+  _border: 2px rgb(155, 155, 155) solid;
 }
 
 html,
@@ -26,11 +26,15 @@ main {
 .app-container {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1rem 3rem;
+  background-color: rgb(185, 255, 191);
+  border-radius: 10px;
 }
 h1 {
   font-family: monospace;
+  font-size: 2.5rem;
   align-self: center;
+  margin-bottom: 2rem;
 }
 
 .todo-input-container {
@@ -58,4 +62,8 @@ h1 {
   min-height: 5rem;
   align-self: flex-start;
   margin-top: 1rem;
+}
+
+li > input {
+  margin-right: 1rem;
 }
