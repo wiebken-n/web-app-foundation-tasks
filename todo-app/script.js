@@ -6,15 +6,22 @@ const checkboxOpen = document.querySelector(".check-open-todos");
 const checkboxDone = document.querySelector(".check-done-todos");
 const todoList = document.querySelector(".todo-list");
 
-// console.log(todoList);
-// console.log(buttonAddTodo);
-
-const state = {
+let state = {
   todos: [{ description: "Add Todo", done: false, ID: 1 }],
   ID: 2,
 };
 
+window.addEventListener("load", (event) => {
+  const loadStorage = JSON.parse(localStorage.getItem("storageState"));
+  state = loadStorage;
+  renderTodos();
+});
+
+// event listener for Add-todo button
 buttonAddTodo.addEventListener("click", function (event) {
+  const loadStorage = JSON.parse(localStorage.getItem("storageState"));
+  state = loadStorage;
+
   // no button action if input is empty
   if (textInput.value === "") {
     return;
@@ -31,10 +38,15 @@ buttonAddTodo.addEventListener("click", function (event) {
 
   saveTodo();
   renderTodos();
+  const jsonState = JSON.stringify(state);
+  localStorage.setItem("storageState", jsonState);
 });
 
+// remove done todos if button is clicked
 buttonRemoveTodo.addEventListener("click", function (event) {
   removeTodos();
+  const jsonState = JSON.stringify(state);
+  localStorage.setItem("storageState", jsonState);
 });
 
 function renderTodos() {
@@ -56,7 +68,6 @@ function renderTodos() {
     // render checkbox state
     newCheckbox.type = "checkbox";
     newCheckbox.checked = todo.done;
-    console.log(todo);
     if (todo.done === true) {
       newTodoLi.classList.toggle("done-todo");
     }
@@ -75,7 +86,6 @@ function renderTodos() {
     newTodoLi.appendChild(newCheckbox);
     newTodoLi.appendChild(newTodoText);
     todoList.appendChild(newTodoLi);
-    // console.log(newCheckbox.name);
   });
   // empty text input
   textInput.value = "";
@@ -90,14 +100,10 @@ function saveTodo() {
 
 // filter todo list and return undone todos
 function removeTodos() {
-  state.todos.forEach((todo) => {
-    //console.log(state.todos);
-    let currentIndex = state.todos.indexOf(todo);
-    if (todo.done === true) {
-      console.log(currentIndex);
-      state.todos.splice(currentIndex, 1);
+  for (let i = 0; i < state.todos.length; i++) {
+    if (state.todos[i].done === true) {
+      state.todos.splice(i, 1);
     }
-
-    renderTodos();
-  });
+  }
+  renderTodos();
 }
