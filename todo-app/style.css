@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px rgb(155, 155, 155) solid;
+}
+
+html,
+body,
+main {
+  height: 100%;
+}
+
+html {
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+h1 {
+  font-family: monospace;
+  align-self: center;
+}
+
+.todo-input-container {
+  display: flex;
+  flex-direction: column;
+}
+.remove-todos-container {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  align-self: center;
+}
+.todo-selection-container {
+  display: flex;
+  flex-direction: column;
+}
+.all-todos-container,
+.open-todos-container,
+.done-todos-container {
+  margin-block: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.todo-list-container {
+  min-height: 5rem;
+  align-self: flex-start;
+  margin-top: 1rem;
+}

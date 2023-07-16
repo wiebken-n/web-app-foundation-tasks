@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@latest/normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+</head>
+
+<body>
+    <main>
+        <div class="app-container">
+            <h1>Todo App</h1>
+            <div class="todo-input-container">
+                <div class="input-todo-container">
+                    <input class="text-todo-input" type="text" name="todo-input" id="todo-input" value="placeholder">
+                    <button class="button-add-todo">Add Todo</button>
+                </div>
+                <div class="remove-todos-container">
+                    <button class="button-remove-done-todos">Remove done Todos</button>
+                </div>
+                <div class="todo-selection-container">
+                    <div class="all-todos-container">
+                        <input class="check-all-todos" type="checkbox" name="all-todos" id="all-todos">
+
+                        <label class="label-all-todos" for="all-todos">All</label>
+                    </div>
+                    <div class="open-todos-container">
+                        <input class="check-open-todos" type="checkbox" name="open-todos" id="open-todos">
+
+                        <label class="label-open-todos" for="open-todos">Open</label>
+                    </div>
+                    <div class="done-todos-container">
+                        <input class="check-done-todos" type="checkbox" name="done-todos" id="done-todos">
+                        <label class="label-done-todos" for="done-todos">Done</label>
+                    </div>
+                </div>
+            </div>
+            <div class="todo-list-container">
+                <ul class="todo-list">
+                    <li>example</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+</body>
+<script src="script.js"></script>
+
+</html>
