@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+main {
+  height: 100%;
+}
+
 html {
   --seconds: 30deg;
   --minutes: 90deg;
@@ -11,11 +17,21 @@ html {
   --red: 0;
   --green: 0;
   --blue: 0;
+  --clr-dial: white;
+  --clr-hands: black;
+  --clr-digi-clock: black;
+  --clr-dial-shadow: rgba(0, 0, 0, 0.534);
+  --clr-background-default: #96dab8;
+  --clr-background: rgb(var(--red), var(--green), var(--blue), 0.7);
 }
-html,
-body,
-main {
-  height: 100%;
+
+.html-dark {
+  --clr-dial: rgb(var(--red), var(--green), var(--blue), 0.5);
+  --clr-digi-clock: rgb(236, 235, 220);
+  --clr-dial-shadow: rgba(236, 235, 220, 0.534);
+  --clr-hands: rgb(236, 235, 220);
+  --clr-background: rgb(45, 45, 49);
+  --clr-dial-default: #96dab89a;
 }
 
 main {
@@ -25,25 +41,26 @@ main {
   justify-content: center;
   gap: 5rem;
   transition: background-color 1000ms ease;
-  background-color: #96dab8;
-  background-color: rgb(var(--red), var(--green), var(--blue), 0.9);
+  background-color: var(--clr-background-default);
+  background-color: var(--clr-background);
 }
 
 .dial {
   position: relative;
-  background-color: white;
+  background-color: var(--clr-dial-default);
+  background-color: var(--clr-dial);
   width: 20rem;
   height: 20rem;
   border-radius: 90%;
-  border: 3px solid black;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.534);
+  border: 3px solid var(--clr-hands);
+  box-shadow: 2px 2px 10px var(--clr-dial-shadow);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .analog-hours {
-  background-color: black;
+  background-color: var(--clr-hands);
   border-radius: 5px;
   height: 5.5rem;
   width: 6px;
@@ -54,7 +71,7 @@ main {
 }
 
 .analog-minutes {
-  background-color: black;
+  background-color: var(--clr-hands);
   border-radius: 5px;
   height: 9rem;
   width: 5px;
@@ -65,7 +82,7 @@ main {
 }
 
 .analog-seconds {
-  background-color: black;
+  background-color: var(--clr-hands);
   border-radius: 5px;
   height: 9rem;
   width: 2.5px;
@@ -78,12 +95,13 @@ main {
 .circle {
   width: 15px;
   height: 15px;
-  background-color: black;
+  background-color: var(--clr-hands);
   border-radius: 90%;
 }
 .digital-clock {
   font-size: 3rem;
   font-family: monospace;
+  color: var(--clr-digi-clock);
 }
 
 .invisible {

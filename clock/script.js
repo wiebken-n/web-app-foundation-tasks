@@ -18,10 +18,12 @@ function updateTime() {
   digiSeconds.innerText = convertTime(date.getSeconds());
   digiDots.forEach((entry) => entry.classList.toggle("invisible"));
 
+  // toggle dark mode
+
   // analog clock
   html.style.setProperty("--seconds", date.getSeconds() * 6 + "deg");
   html.style.setProperty("--minutes", date.getMinutes() * 6 + "deg");
-  html.style.setProperty("--hours", (date.getHours() / 2) * 30 + "deg");
+  html.style.setProperty("--hours", (date.getHours() - 12) * 30 + "deg");
 
   // background-colors
   html.style.setProperty("--red", date.getHours() * (100 / 24) + 50);
@@ -40,5 +42,19 @@ function convertTime(time) {
 
 // execute function
 updateTime();
+
 // set interval at which current time is updated
 setInterval(updateTime, 1000);
+toggleDarkMode();
+
+function toggleDarkMode() {
+  let date = new Date();
+  let currentHour = date.getHours();
+  // dark mode
+  if (currentHour > 20 || currentHour < 8) {
+    html.classList.add("html-dark");
+  }
+  if (currentHour < 20 || currentHour > 8) {
+    html.classList.remove("html-dark");
+  }
+}
