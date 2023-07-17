@@ -3,7 +3,6 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
-  _border: 2px rgb(155, 155, 155) solid;
 }
 
 html,
@@ -13,8 +12,27 @@ main {
 }
 
 html {
-  font-size: 15px;
+  font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  --clr-background: #3e95ada9;
+  --clr-app-area: rgb(252, 209, 90);
+  --clr-app-area-light: rgb(253, 234, 181);
+  --clr-gradient: linear-gradient(
+    90deg,
+    rgb(252, 209, 90) 0%,
+    rgb(253, 234, 181) 1% 99%,
+    rgb(252, 209, 90) 100%
+  );
+  --clr-font: #025464;
+  --clr-font-accent: #ace4f0;
+  --clr-accent: #fd8e2c;
+  --clr-button-hover: #ee7f1e;
+  --clr-button-active: #ff7700;
+  --clr-accent-accent: #9c5619;
+  --clr-todo-area: #d2f2f8;
+  --clr-font-dark: #01313b;
+  --clr-checkbox: #118fa8;
 }
 
 main {
@@ -22,49 +40,122 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--clr-background);
+  color: var(--clr-font);
 }
 
+button {
+  background-color: var(--clr-accent);
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--clr-accent-accent);
+  box-shadow: 1px 1px 0px var(--clr-accent-accent);
+  cursor: pointer;
+  color: var(--clr-font-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: none;
+  transition: background-color 50ms ease;
+}
+
+button:hover {
+  background-color: var(--clr-button-hover);
+}
+button:active {
+  box-shadow: 1px 1px 0px var(--clr-accent-accent);
+  background-color: var(--clr-font-accent);
+  border-color: var(--clr-background);
+}
+
+div label {
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+div input {
+  accent-color: var(--clr-checkbox);
+}
 .app-container {
   display: flex;
   flex-direction: column;
-  padding: 1rem 3rem;
-  background-color: rgb(185, 255, 191);
+  padding: 2rem 2.5rem;
+  background-color: var(--clr-app-area);
   border-radius: 10px;
 }
-h1 {
-  font-family: monospace;
-  font-size: 2.5rem;
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--clr-app-area-light);
+  background: var(--clr-gradient);
+  margin-bottom: 1rem;
+  border-block: 3px solid var(--clr-font-accent);
+  width: 102%;
   align-self: center;
-  margin-bottom: 2rem;
+}
+
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 3rem;
+  align-self: center;
+  text-shadow: 2px 2px 2px var(--clr-font-accent);
+  margin-block: 0.3rem;
 }
 
 .todo-input-container {
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
 }
-.remove-todos-container {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  align-self: center;
-}
-.todo-selection-container {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-}
-.all-todos-container,
-.open-todos-container,
-.done-todos-container {
-  margin-block: 0.25rem;
 
+.text-input-container {
   display: flex;
   flex-direction: row;
   gap: 1rem;
 }
+.text-todo-input {
+  background-color: var(--clr-todo-area);
+  color: var(--clr-font);
+  height: 2.5rem;
+  width: 13rem;
+  margin: none;
+  border: 2px solid var(--clr-font);
+  border-radius: 5px;
+}
+
+.button-add-todo {
+  margin-bottom: 0.12rem;
+  height: 2.4rem;
+}
+.remove-todos-container {
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+  align-self: center;
+}
+.todo-selection-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1rem;
+}
+.all-todos-container,
+.open-todos-container,
+.done-todos-container {
+  margin-block: 0rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
 .todo-list-container {
   min-height: 5rem;
-  align-self: flex-start;
+  align-self: center;
   margin-top: 1rem;
+  background-color: var(--clr-todo-area);
+  width: 100%;
+  border-radius: 15px;
+  border: 10px solid var(--clr-font-accent);
 }
 
 ul {
@@ -72,11 +163,19 @@ ul {
 }
 
 ul > li {
+  color: var(--clr-font);
+  font-weight: 600;
   list-style: none;
   margin-block: 0.25rem;
+
+  padding-block: 0.5rem;
+  padding-inline: 1rem;
+  border-radius: 10px;
+  min-width: 10rem;
 }
 li > input {
   margin-right: 1rem;
+  accent-color: var(--clr-checkbox);
 }
 
 .done-todo {
