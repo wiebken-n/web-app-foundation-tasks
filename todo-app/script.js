@@ -149,9 +149,11 @@ function loadState() {
       ID: 2,
     };
     Object.assign(state, defaultState);
+    checkboxAll.checked = true;
   }
   const loadStorage = JSON.parse(localStorage.getItem("storageState"));
   Object.assign(state, loadStorage);
+  checkboxAll.checked = true;
 }
 
 function saveState() {
