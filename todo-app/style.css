@@ -36,6 +36,11 @@ html {
   --clr-textinput-border: #014f5f;
 }
 
+*::selection {
+  color: var(--clr-button-hover);
+  background-color: var(--clr-background);
+}
+
 main {
   display: flex;
   flex-direction: column;
