@@ -33,6 +33,7 @@ html {
   --clr-todo-area: #d2f2f8;
   --clr-font-dark: #01313b;
   --clr-checkbox: #118fa8;
+  --clr-textinput-border: #014f5f;
 }
 
 main {
@@ -73,14 +74,16 @@ div label {
 }
 
 div input {
+  cursor: pointer;
   accent-color: var(--clr-checkbox);
 }
 .app-container {
   display: flex;
   flex-direction: column;
-  padding: 2rem 2.5rem;
+  padding: 2rem 3rem;
   background-color: var(--clr-app-area);
-  border-radius: 10px;
+  border-radius: 20px;
+  border: 4px solid var(--clr-checkbox);
 }
 
 .header-container {
@@ -114,22 +117,33 @@ h1 {
   gap: 1rem;
 }
 .text-todo-input {
+  cursor: text;
   background-color: var(--clr-todo-area);
   color: var(--clr-font);
   height: 2.5rem;
   width: 13rem;
   margin: none;
-  border: 2px solid var(--clr-font);
+  border: 2px solid var(--clr-textinput-border);
   border-radius: 5px;
+  padding-left: 0.5rem;
+  accent-color: red;
 }
 
+.text-todo-input:focus {
+  background-color: var(--clr-font-accent);
+  outline: none;
+}
+
+.text-todo-input::placeholder {
+  color: var(--clr-background);
+}
 .button-add-todo {
   margin-bottom: 0.12rem;
   height: 2.4rem;
 }
 .remove-todos-container {
   margin-top: 0.8rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.1rem;
   align-self: center;
 }
 .todo-selection-container {
@@ -153,9 +167,9 @@ h1 {
   align-self: center;
   margin-top: 1rem;
   background-color: var(--clr-todo-area);
-  width: 100%;
+  width: 110%;
   border-radius: 15px;
-  border: 10px solid var(--clr-font-accent);
+  border: 5px solid var(--clr-font-accent);
 }
 
 ul {
@@ -167,13 +181,14 @@ ul > li {
   font-weight: 600;
   list-style: none;
   margin-block: 0.25rem;
-
   padding-block: 0.5rem;
   padding-inline: 1rem;
   border-radius: 10px;
   min-width: 10rem;
 }
+
 li > input {
+  cursor: pointer;
   margin-right: 1rem;
   accent-color: var(--clr-checkbox);
 }

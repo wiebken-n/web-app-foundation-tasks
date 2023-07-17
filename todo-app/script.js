@@ -37,8 +37,8 @@ buttonAddTodo.addEventListener("click", function (event) {
 
   saveTodo();
   sortTodos();
-  renderTodos();
   saveState();
+  renderTodos();
 });
 
 // render todo list according to checkbox state
@@ -51,8 +51,8 @@ checkboxContainer.addEventListener("change", function (event) {
 buttonRemoveTodo.addEventListener("click", function (event) {
   removeTodos();
   sortTodos();
-  renderTodos();
   saveState();
+  renderTodos();
 });
 
 //-------------------------------------------------------
@@ -67,7 +67,10 @@ function renderTodos() {
     // create new li with checkbox & description
     const newTodoLi = document.createElement("li");
     const newCheckbox = document.createElement("input");
+    const newLabel = document.createElement("label");
     const newTodoText = document.createTextNode(todo.description);
+    newLabel.setAttribute("for", todo.description);
+    newCheckbox.setAttribute("id", todo.description);
 
     // render checkbox state
     newCheckbox.type = "checkbox";
@@ -89,7 +92,8 @@ function renderTodos() {
     newCheckbox.name = todo.description;
     // attach new li to todo-ul
     newTodoLi.appendChild(newCheckbox);
-    newTodoLi.appendChild(newTodoText);
+    newLabel.appendChild(newTodoText);
+    newTodoLi.appendChild(newLabel);
     todoList.appendChild(newTodoLi);
   });
   // empty text input
