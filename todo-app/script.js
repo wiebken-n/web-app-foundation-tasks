@@ -22,7 +22,7 @@ window.addEventListener("load", (event) => {
 // event listener for Add-todo button
 buttonAddTodo.addEventListener("click", function (event) {
   // no button action if input is empty
-  if (textInput.value === "") {
+  if (textInput.value.trim() === "") {
     return;
   }
   // check if todo of that description already exists - if yes, no action & empty input field
@@ -98,7 +98,7 @@ function renderTodos() {
 
 function saveTodo() {
   // initialize variable with text input
-  const newTodo = textInput.value;
+  const newTodo = textInput.value.trim();
   // initialize variable with current global ID
   const newTodoID = state.ID;
   // increment global ID
