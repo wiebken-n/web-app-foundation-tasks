@@ -7,9 +7,9 @@ const checkboxOpen = document.querySelector(".check-open-todos");
 const checkboxDone = document.querySelector(".check-done-todos");
 const todoList = document.querySelector(".todo-list");
 
-// default state
 const state = {};
 let filteredTodos;
+
 // ----------------------------------------------
 
 // load state
@@ -25,7 +25,7 @@ buttonAddTodo.addEventListener("click", function (event) {
   if (textInput.value === "") {
     return;
   }
-  // check if todo of that description already exists - if yes, no action / empty input field
+  // check if todo of that description already exists - if yes, no action & empty input field
   for (let i = 0; i < state.todos.length; i++) {
     if (
       state.todos[i].description.toLowerCase() === textInput.value.toLowerCase()
@@ -41,6 +41,7 @@ buttonAddTodo.addEventListener("click", function (event) {
   saveState();
 });
 
+// render todo list according to checkbox state
 checkboxContainer.addEventListener("change", function (event) {
   sortTodos();
   renderTodos();
@@ -61,9 +62,7 @@ function renderTodos() {
 
   todoList.innerText = "";
   sortTodos();
-  console.log(typeof filteredTodos);
   // render todo list
-  //state.todos.forEach((todo) => {
   filteredTodos.forEach((todo) => {
     // create new li with checkbox & description
     const newTodoLi = document.createElement("li");
@@ -113,10 +112,12 @@ function removeTodos() {
   for (let i = 0; i < state.todos.length; i++) {
     if (state.todos[i].done === true) {
       state.todos.splice(i, 1);
+      i--;
     }
   }
 }
 
+// sort todos according to current checkbox state
 function sortTodos() {
   if (checkboxAll.checked) {
     filteredTodos = state.todos.filter((todo) => {
@@ -142,6 +143,7 @@ function sortTodos() {
   }
 }
 
+// load state from storage - if none present, initialize default state
 function loadState() {
   if (localStorage.getItem("storageState") === null) {
     const defaultState = {
@@ -156,6 +158,7 @@ function loadState() {
   checkboxAll.checked = true;
 }
 
+// save state to storage
 function saveState() {
   const jsonState = JSON.stringify(state);
   localStorage.setItem("storageState", jsonState);
