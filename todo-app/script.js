@@ -1,6 +1,7 @@
 const textInput = document.querySelector(".text-todo-input");
 const buttonAddTodo = document.querySelector(".button-add-todo");
 const buttonRemoveTodo = document.querySelector(".button-remove-done-todos");
+const checkboxContainer = document.querySelector(".todo-selection-container");
 const checkboxAll = document.querySelector(".check-all-todos");
 const checkboxOpen = document.querySelector(".check-open-todos");
 const checkboxDone = document.querySelector(".check-done-todos");
@@ -8,11 +9,13 @@ const todoList = document.querySelector(".todo-list");
 
 // default state
 const state = {};
+let filteredTodos;
 // ----------------------------------------------
 
 // load state
 window.addEventListener("load", (event) => {
   loadState();
+  sortTodos();
   renderTodos();
 });
 
@@ -33,32 +36,40 @@ buttonAddTodo.addEventListener("click", function (event) {
   }
 
   saveTodo();
+  sortTodos();
   renderTodos();
   saveState();
+});
+
+checkboxContainer.addEventListener("change", function (event) {
+  sortTodos();
+  renderTodos();
 });
 
 // remove done todos if button is clicked
 buttonRemoveTodo.addEventListener("click", function (event) {
   removeTodos();
+  sortTodos();
+  renderTodos();
   saveState();
 });
+
+//-------------------------------------------------------
 
 function renderTodos() {
   // empty redered list
 
   todoList.innerText = "";
+  sortTodos();
+  console.log(typeof filteredTodos);
   // render todo list
-  state.todos.forEach((todo) => {
+  //state.todos.forEach((todo) => {
+  filteredTodos.forEach((todo) => {
     // create new li with checkbox & description
     const newTodoLi = document.createElement("li");
     const newCheckbox = document.createElement("input");
     const newTodoText = document.createTextNode(todo.description);
-    // assign ID to todo
-    const newTodoID = state.ID;
-    if (!Number.isInteger(todo.ID)) {
-      todo.ID = newTodoID;
-      state.ID++;
-    }
+
     // render checkbox state
     newCheckbox.type = "checkbox";
     newCheckbox.checked = todo.done;
@@ -72,6 +83,7 @@ function renderTodos() {
       todo.done = event.target.checked;
       // add strike-through-text class for (un)done todo
       newTodoLi.classList.toggle("done-todo");
+      saveState();
     });
 
     // assign description of todo as name to li element
@@ -85,13 +97,15 @@ function renderTodos() {
   textInput.value = "";
 }
 
-//-------------------------------------------------------
-
 function saveTodo() {
   // initialize variable with text input
   const newTodo = textInput.value;
-  // push todo description & undone state to state object
-  state.todos.push({ description: newTodo, done: false });
+  // initialize variable with current global ID
+  const newTodoID = state.ID;
+  // increment global ID
+  state.ID++;
+  // push todo description, undone state & ID to state object
+  state.todos.push({ description: newTodo, done: false, ID: newTodoID });
 }
 
 // filter todo list and return undone todos
@@ -101,7 +115,31 @@ function removeTodos() {
       state.todos.splice(i, 1);
     }
   }
-  renderTodos();
+}
+
+function sortTodos() {
+  if (checkboxAll.checked) {
+    filteredTodos = state.todos.filter((todo) => {
+      return todo.done || !todo.done;
+    });
+    return filteredTodos;
+  }
+  if (checkboxOpen.checked) {
+    filteredTodos = state.todos.filter((todo) => !todo.done);
+    return filteredTodos;
+  }
+  if (checkboxDone.checked) {
+    filteredTodos = state.todos.filter((todo) => todo.done);
+    return filteredTodos;
+  }
+  if (!checkboxAll.checked && !checkboxDone.checked && !checkboxOpen.checked) {
+    console.log("All");
+    filteredTodos = state.todos.filter((todo) => {
+      return todo.done || !todo.done;
+    });
+    console.log(filteredTodos);
+    return filteredTodos;
+  }
 }
 
 function loadState() {
