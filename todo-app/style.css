@@ -224,7 +224,7 @@ li > input {
 .done-todo {
   text-decoration: line-through;
 }
-/*
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 15px;
@@ -241,4 +241,3 @@ li > input {
     font-size: 13px;
   }
 }
-*/
