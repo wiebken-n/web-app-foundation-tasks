@@ -36,6 +36,7 @@ html {
   --clr-font-dark: #01313b;
   --clr-checkbox: #118fa8;
   --clr-textinput-border: #014f5f;
+  background-color: var(--clr-background);
 }
 
 *::selection {
@@ -50,6 +51,7 @@ main {
   justify-content: center;
   background-color: var(--clr-background);
   color: var(--clr-font);
+  max-width: 100vw;
 }
 
 button {
@@ -66,6 +68,7 @@ button {
   font-size: 1rem;
   margin: none;
   transition: background-color 50ms ease, transform 100ms ease;
+  min-width: max-content;
 }
 
 button:hover {
@@ -95,6 +98,8 @@ div input {
   border-radius: 20px;
   border: 4px solid var(--clr-font);
   box-shadow: 0px 0px 5px 3px var(--clr-checkbox);
+  max-width: 95vw;
+  min-width: max-content;
 }
 
 .header-container {
@@ -189,6 +194,12 @@ h1 {
   box-shadow: 0px 0px 2px 3px var(--clr-checkbox);
 }
 
+.todo-list {
+  max-height: 35vh;
+  overflow-y: auto;
+  scrollbar-color: var(--clr-background) var(--clr-font-accent);
+}
+
 ul {
   padding: 0;
 }
@@ -213,3 +224,21 @@ li > input {
 .done-todo {
   text-decoration: line-through;
 }
+/*
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+  main {
+    _justify-content: flex-start;
+  }
+  .app-container {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+}
+*/
