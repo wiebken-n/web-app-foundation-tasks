@@ -5,6 +5,7 @@ const blue = document.querySelector(".slider-blue");
 const html = document.querySelector("html");
 const sliderContainer = document.querySelector(".slider-container");
 const hexValue = document.querySelector(".hexvalue");
+const button = document.querySelector(".btn-random-color");
 
 // add event listener to slider area
 sliderContainer.addEventListener("input", function () {
@@ -36,4 +37,36 @@ sliderContainer.addEventListener("input", function () {
     }
     return hex;
   }
+  fontColorBtn();
 });
+
+// event listener for button - load random color
+button.addEventListener("click", function (event) {
+  fetch("https://dummy-apis.netlify.app/api/color")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      hexValue.innerText = data.color.toLowerCase();
+      html.style.setProperty("--value-red", data.rgb.r);
+      html.style.setProperty("--value-green", data.rgb.g);
+      html.style.setProperty("--value-blue", data.rgb.b);
+      red.value = data.rgb.r;
+      green.value = data.rgb.g;
+      blue.value = data.rgb.b;
+      fontColorBtn();
+    });
+});
+
+function fontColorBtn() {
+  console.log(
+    parseInt(red.value) + parseInt(green.value) + parseInt(blue.value)
+  );
+  if (
+    parseInt(red.value) + parseInt(green.value) + parseInt(blue.value) <
+    250
+  ) {
+    button.style.setProperty("color", "white");
+  } else {
+    button.style.setProperty("color", "black");
+  }
+}

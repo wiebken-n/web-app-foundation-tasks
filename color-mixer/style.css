@@ -57,6 +57,38 @@ label {
   accent-color: rgb(46, 46, 240);
 }
 
+.btn-container {
+  display: flex;
+  align-items: center;
+}
+.btn-random-color {
+  cursor: pointer;
+  height: 2.5rem;
+  background-color: rgb(
+    var(--value-red),
+    var(--value-green),
+    var(--value-blue),
+    0.8
+  );
+}
+
+.btn-random-color:hover {
+  background-color: rgb(
+    var(--value-red),
+    var(--value-green),
+    var(--value-blue),
+    0.5
+  );
+}
+
+.btn-random-color:active {
+  background-color: rgb(
+    var(--value-red),
+    var(--value-green),
+    var(--value-blue),
+    0.3
+  );
+}
 .hexvalue-container {
   display: flex;
 }
