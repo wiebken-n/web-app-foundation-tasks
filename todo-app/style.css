@@ -93,7 +93,7 @@ div input {
 .app-container {
   display: flex;
   flex-direction: column;
-  padding: 2rem 3rem;
+  padding: 2.25rem 3rem;
   background-color: var(--clr-app-area);
   border-radius: 20px;
   border: 4px solid var(--clr-font);
@@ -144,7 +144,6 @@ h1 {
   border: 2px solid var(--clr-textinput-border);
   border-radius: 5px;
   padding-left: 0.5rem;
-  accent-color: red;
 }
 
 .text-todo-input:focus {
@@ -184,7 +183,6 @@ h1 {
   gap: 0.5rem;
 }
 .todo-list-container {
-  min-height: 5rem;
   align-self: center;
   margin-top: 1rem;
   background-color: var(--clr-todo-area);
@@ -195,7 +193,7 @@ h1 {
 }
 
 .todo-list {
-  max-height: 35vh;
+  height: 37vh;
   overflow-y: auto;
   scrollbar-color: var(--clr-background) var(--clr-font-accent);
 }
@@ -232,12 +230,10 @@ li > input {
   main {
     justify-content: center;
   }
-  .todo-list {
-    max-height: 45vh;
-  }
-  @media screen and (max-width: 400px) {
-    html {
-      font-size: 13px;
-    }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
   }
 }
