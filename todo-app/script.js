@@ -21,7 +21,7 @@ window.addEventListener("load", (event) => {
   loadState();
   setLanguageClass();
   changeLanguage();
-  sortTodos();
+  loadDummyTodo();
   renderTodos();
 });
 
@@ -29,6 +29,8 @@ window.addEventListener("load", (event) => {
 btnSwitchLanguage.addEventListener("click", function (event) {
   ToggleLanguageState();
   changeLanguage();
+  loadDummyTodo();
+  renderTodos();
 });
 
 // event listener for Add-todo button
@@ -219,4 +221,15 @@ function changeLanguage() {
     labelDoneTodos.innerText = "Erledigte";
     textInput.setAttribute("placeholder", " Was ist zu erledigen?");
   }
+}
+
+// set language of default todo
+function loadDummyTodo() {
+  if (state.todos[0].ID === 1 && state.language === "de") {
+    state.todos[0].description = "Füge Todos hinzu";
+  }
+  if (state.todos[0].ID === 1 && state.language === "en") {
+    state.todos[0].description = "Add Todos";
+  }
+  saveState();
 }
