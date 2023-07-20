@@ -6,6 +6,10 @@ const checkboxAll = document.querySelector(".check-all-todos");
 const checkboxOpen = document.querySelector(".check-open-todos");
 const checkboxDone = document.querySelector(".check-done-todos");
 const todoList = document.querySelector(".todo-list");
+const btnSwitchLanguage = document.querySelector(".btn-switch-language");
+const labelAllTodos = document.querySelector(".label-all-todos");
+const labelOpenTodos = document.querySelector(".label-open-todos");
+const labelDoneTodos = document.querySelector(".label-done-todos");
 
 const state = {};
 let filteredTodos;
@@ -15,8 +19,16 @@ let filteredTodos;
 // load state
 window.addEventListener("load", (event) => {
   loadState();
+  setLanguageClass();
+  changeLanguage();
   sortTodos();
   renderTodos();
+});
+
+// event listener for language switch button
+btnSwitchLanguage.addEventListener("click", function (event) {
+  ToggleLanguageState();
+  changeLanguage();
 });
 
 // event listener for Add-todo button
@@ -138,11 +150,10 @@ function sortTodos() {
     return filteredTodos;
   }
   if (!checkboxAll.checked && !checkboxDone.checked && !checkboxOpen.checked) {
-    console.log("All");
     filteredTodos = state.todos.filter((todo) => {
       return todo.done || !todo.done;
     });
-    console.log(filteredTodos);
+
     return filteredTodos;
   }
 }
@@ -153,6 +164,7 @@ function loadState() {
     const defaultState = {
       todos: [{ description: "Add Todo", done: false, ID: 1 }],
       ID: 2,
+      language: "en",
     };
     Object.assign(state, defaultState);
     checkboxAll.checked = true;
@@ -166,4 +178,45 @@ function loadState() {
 function saveState() {
   const jsonState = JSON.stringify(state);
   localStorage.setItem("storageState", jsonState);
+}
+
+// set language class according to state
+function setLanguageClass() {
+  if (state.language === "de") {
+    btnSwitchLanguage.classList.add("btn-language-german");
+  }
+}
+// toggle language
+function ToggleLanguageState() {
+  btnSwitchLanguage.classList.toggle("btn-language-german");
+  if (btnSwitchLanguage.classList.contains("btn-language-german")) {
+    state.language = "de";
+  }
+  if (!btnSwitchLanguage.classList.contains("btn-language-german")) {
+    state.language = "en";
+  }
+  saveState();
+}
+
+// change language
+function changeLanguage() {
+  if (state.language === "en") {
+    state.language = "en";
+    btnSwitchLanguage.innerText = "DE";
+    buttonAddTodo.innerText = "Add Todo";
+    buttonRemoveTodo.innerText = "Remove done Todos";
+    labelAllTodos.innerText = "All";
+    labelOpenTodos.innerText = "Open";
+    labelDoneTodos.innerText = "Done";
+    textInput.setAttribute("placeholder", " What needs to be done?");
+  } else if (state.language === "de") {
+    state.language = "de";
+    btnSwitchLanguage.innerText = "EN";
+    buttonAddTodo.innerText = "Neues Todo";
+    buttonRemoveTodo.innerText = "Lösche erledigte Todos";
+    labelAllTodos.innerText = "Alle";
+    labelOpenTodos.innerText = "Offene";
+    labelDoneTodos.innerText = "Erledigte";
+    textInput.setAttribute("placeholder", " Was ist zu erledigen?");
+  }
 }

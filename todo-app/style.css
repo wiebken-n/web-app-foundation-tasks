@@ -90,6 +90,26 @@ div input {
   cursor: pointer;
   accent-color: var(--clr-checkbox);
 }
+
+.btn-switch-language {
+  background-color: var(--clr-font-accent);
+  box-shadow: 2px 2px 0px var(--clr-font);
+  border: 2px solid var(--clr-font);
+  position: absolute;
+  top: 1vw;
+  right: 1vw;
+}
+
+.btn-switch-language:hover {
+  background-color: var(--clr-app-area);
+}
+.btn-switch-language:active {
+  box-shadow: 1px 1px 1px var(--clr-font-dark);
+  background-color: var(--clr-accent);
+  border-color: var(--clr-font);
+  transform: translate(1px, 1px);
+}
+
 .app-container {
   display: flex;
   flex-direction: column;
