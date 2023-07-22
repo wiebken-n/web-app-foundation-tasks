@@ -4,7 +4,9 @@ const btnShowPw = document.querySelector("#btn-show-pw");
 
 btnShowPw.addEventListener("click", function (event) {
   event.preventDefault();
-  switch (pwInput1.type) {
+  inputToggle(pwInput1);
+  inputToggle(pwInput2);
+  /*switch (pwInput1.type) {
     case "password":
       pwInput1.setAttribute("type", "text");
       break;
@@ -20,8 +22,19 @@ btnShowPw.addEventListener("click", function (event) {
       pwInput2.setAttribute("type", "password");
       break;
   }
+  */
 });
 
+function inputToggle(pwInput) {
+  switch (pwInput.type) {
+    case "password":
+      pwInput.setAttribute("type", "text");
+      break;
+    case "text":
+      pwInput.setAttribute("type", "password");
+      break;
+  }
+}
 pwInput1.addEventListener("input", function () {
   pwEqualCheck();
 });
@@ -39,13 +52,8 @@ function pwEqualCheck() {
       pwLengthCheck();
       pwNumberCheck();
       break;
-    case false:
-      pwEqualCheckFailRender();
-      document.querySelector("#pw-equal-indicator").innerText = "❌";
-      break;
     default:
       pwEqualCheckFailRender();
-      document.querySelector("#pw-equal-indicator").innerText = "❌";
       break;
   }
 }
@@ -55,9 +63,6 @@ function pwLowerCase() {
   switch (pwInput1.value.split("").some(lowerCaseCheck)) {
     case true:
       document.querySelector("#pw-lower-case-indicator").innerText = "✅";
-      break;
-    case false:
-      document.querySelector("#pw-lower-case-indicator").innerText = "❌";
       break;
     default:
       document.querySelector("#pw-lower-case-indicator").innerText = "❌";
@@ -70,9 +75,6 @@ function pwUpperCase() {
   switch (pwInput1.value.split("").some(upperCaseCheck)) {
     case true:
       document.querySelector("#pw-upper-case-indicator").innerText = "✅";
-      break;
-    case false:
-      document.querySelector("#pw-upper-case-indicator").innerText = "❌";
       break;
     default:
       document.querySelector("#pw-upper-case-indicator").innerText = "❌";
@@ -89,9 +91,6 @@ function pwNumberCheck() {
     case true:
       document.querySelector("#pw-number-indicator").innerText = "✅";
       break;
-    case false:
-      document.querySelector("#pw-number-indicator").innerText = "❌";
-      break;
     default:
       document.querySelector("#pw-number-indicator").innerText = "❌";
       break;
@@ -102,9 +101,6 @@ function pwLengthCheck() {
   switch (pwInput1.value.length >= 10 && pwInput1.value.length >= 10) {
     case true:
       document.querySelector("#pw-10-characters-indicator").innerText = "✅";
-      break;
-    case false:
-      document.querySelector("#pw-10-characters-indicator").innerText = "❌";
       break;
     default:
       document.querySelector("#pw-10-characters-indicator").innerText = "❌";
