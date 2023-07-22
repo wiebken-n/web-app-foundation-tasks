@@ -13,13 +13,13 @@
         <h1>Password Check</h1>
     </header>
     <main>
-        <div id="pw-input-container">
-            <input name="" id="pw-input-1" type="password">
-            <input name="" id="pw-input-2" type="password">
-            <button>Show Passwords</button>
-        </div>
+        <form id="pw-input-container">
+            <input class="input" name="" id="pw-input-1" type="password">
+            <input class="input" name="" id="pw-input-2" type="password">
+            <button class="input" id="btn-show-pw">Show Passwords</button>
+        </form>
         <div id="check-results-container">
-            <p>Passwords are equal <span id="pw-equal-indicator">✅</span></p>
+            <p>Passwords are equal <span id="pw-equal-indicator">❌</span></p>
             <p>Lower Case Letters <span id="pw-lower-case-indicator">❌</span></p>
             <p>Upper Case Letters <span id="pw-upper-case-indicator">❌</span>
             </p>
